@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        h1{text-align:center;}
+            table{
+                border:1px solid #000;
+                width:1000px;
+                margin:auto;
+                border-spacing:0;
+                border-collapse: collapse;
+            }
+            table td{
+                border:1px solid #000;
+               text-align: center;
+    
+            }
+            .a1 {background: #D1B2FF;}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>대우학교1반성적표</h1>
+        <table>
+            <tr>
+                <td class="a1">출석번호</td>
+                <td class="a1">이름</td>
+                <td class="a1">성별</td>
+                <td class="a1">국어</td>
+                <td class="a1">국사</td>
+                <td class="a1">수학</td>
+                <td class="a1">영어</td>
+                <td class="a1">화학</td>
+            </tr>
+            <tr v-for= "(job,index) in jobs" :key="index">
+                <td>{{job.number}}</td><td>{{job.name}}</td><td>{{job.gender}}</td><td>{{job.lang}}</td><td>{{job.national}}</td><td>{{job.math}}</td><td>{{job.eng}}</td><td>{{job.science}}</td>
+               
+            </tr>
+           
+
+        </table>
+        <button @click="pushData()">추가</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                // 배열data로 처리
+                jobs:[
+                    {number:1,name:'이인포',gender:'남자',lang:'98',national:'85',math:'100',eng:'75',science:'70'},
+                    {number:2,name:'손포아',gender:'남자',lang:'100',national:'98',math:'60',eng:'55',science:'50'},
+                    {number:3,name:'김모포',gender:'남자',lang:'100',national:'91',math:'95',eng:'54',science:'55'},
+                    {number:4,name:'김아아',gender:'여자',lang:'95',national:'94',math:'94',eng:'89',science:'56'},
+                    {number:5,name:'인포모',gender:'여자',lang:'99',national:'88',math:'93',eng:'97',science:'54'},
+                    {number:6,name:'인포아',gender:'남자',lang:'96',national:'84',math:'95',eng:'95',science:'53'},
+                    {number:7,name:'모아인',gender:'여자',lang:'99',national:'90',math:'98',eng:'70',science:'52'},
+                    {number:8,name:'정포모',gender:'여자',lang:'99',national:'93',math:'97',eng:'88',science:'78'},
+                    {number:8,name:'이포모',gender:'남자',lang:'83',national:'85',math:'82',eng:'83',science:'84'},
+                ]
+                //객체 data로 처리
+            // insa:{
+
+            //     name:"홍길동",  
+            //     age:30
+            // }
+
+             },
+
+
+            methods:{
+                pushData(){
+
+                    this.jobs.push({number:1,name:'이인포',gender:'남자',lang:'98',national:'85',math:'100',eng:'75',science:'70'});
+                    // this.jobs.push({number:2,name:'손포아',gender:'남자',lang:'100',national:'98',math:'60',eng:'55',science:'50'});
+                    // this.jobs.push({number:3,name:'김모포',gender:'남자',lang:'100',national:'91',math:'95',eng:'54',science:'55'});
+                    // this.jobs.push({number:4,name:'김아아',gender:'여자',lang:'95',national:'94',math:'94',eng:'89',science:'56'});
+                    // this.jobs.push({number:5,name:'인포모',gender:'여자',lang:'99',national:'88',math:'93',eng:'97',science:'54'});
+                    // this.jobs.push({number:6,name:'인포아',gender:'남자',lang:'96',national:'84',math:'95',eng:'95',science:'53'});
+                    // this.jobs.push({number:7,name:'모아인',gender:'여자',lang:'99',national:'90',math:'98',eng:'70',science:'52'});
+                    // this.jobs.push({number:8,name:'정포모',gender:'여자',lang:'99',national:'93',math:'97',eng:'88',science:'78'});
+                    // this.jobs.push({number:8,name:'이포모',gender:'남자',lang:'83',national:'85',math:'82',eng:'83',science:'84'});
+                      
+                }
+
+
+
+            }
+
+        })
+    </script>
+</body>
+</html>
